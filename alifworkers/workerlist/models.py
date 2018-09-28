@@ -31,6 +31,8 @@ class Workers(models.Model):
 
     def __str__(self):
         return self.Name + ', ' +self.Surname
+    
+
 
 
     class Meta:
@@ -59,18 +61,17 @@ class Education(models.Model):
         return self.TypeOfQualification
 
 class Position(models.Model):
-     Position = models.CharField(max_length=100, help_text='Enter the position of the worker ')
-     StartDate = models.DateField(auto_now=True)
-     FinishDate = models.DateField(auto_now=True, blank=True)
-     worker = models.ForeignKey(Workers, on_delete=models.CASCADE)
+    Position = models.CharField(max_length=100, help_text='Enter the position of the worker ')
+    StartDate = models.DateField(auto_now=True)
+    FinishDate = models.DateField(auto_now=True, blank=True)
+    worker = models.ForeignKey(Workers, on_delete=models.CASCADE)
      
-     def __str__(self):
-        return self.Position
+    def __str__(self):
+       return self.Position
     
-        
-     def get_Worker(self):
-        return self.worker
-    
+    def get_Worker(self):
+       Worker = Workers.objects.all()
+       return Worker
 
     
 
