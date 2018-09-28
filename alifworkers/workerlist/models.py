@@ -23,7 +23,7 @@ class Workers(models.Model):
     Name = models.CharField(max_length=100, help_text='Name of the worker ')
     Surname = models.CharField(max_length=100, help_text='Surname of the worker ')
     DOB = models.DateField(auto_now=False)
-    WorkerPhoto = models.ImageField(upload_to='workersPhoto/', blank=False, help_text='Photo of the worker. Please make it small befor uploading')
+    WorkerPhoto = models.ImageField(upload_to='workersPhoto/', blank=True, help_text='Photo of the worker. Please make it small befor uploading')
     Department = models.CharField(max_length=100,  choices = DEPARTMENTS, help_text="Select from the list")
     JoinDate = models.DateField(auto_now=False)
     Sex = models.CharField(max_length=100, choices = SEX, help_text='Select from the list...')
@@ -47,8 +47,8 @@ class Address(models.Model):
         return self.FullAddress
 
 class Education(models.Model):
-    StartDate = models.DateField(auto_now=True)
-    FinishDate = models.DateField(auto_now=True, blank=True)
+    StartDate = models.DateField(auto_now=False)
+    FinishDate = models.DateField(auto_now=False, blank=True)
     TypeOfQualification = models.CharField(max_length=100, help_text='ex. Master Degree; Bachelor Degree, etc')
     NameOfOrganisation = models.CharField(max_length=100, help_text='Name of the institution provided the education')
     Address = models.CharField(max_length=100, help_text='Enter the address')
