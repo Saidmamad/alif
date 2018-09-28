@@ -1,13 +1,56 @@
 {% extends 'base.html' %}
+{% load static from staticfiles %}
 
 {% block content %} 
-
+<br>
+<br>
       <!-- Page Heading -->
       <h1 class="my-4">List of the Alif Capital workers
         <small>2018</small>
       </h1>
-
+ 
 <div class="row">
+
+  {% for worker in workers %}
+
+  <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" width="700" height="400" src="{{ worker.WorkerPhoto.url }}" alt=""></a>
+        <div class="card-body">
+          <h6 class="card-title">
+            <a href="#">{{ worker.get_Worker.Name }} {{ worker.get_Worker.Surname }}</a>
+            
+          </h6>
+          <p class="card-text">
+            
+            <span><b>Name:</b> {{ worker.Name }}  </span> <br>
+            <span><b>Joined:</b> {{ worker.JoinDate }}  </span> <br>
+            <span><b>Position:</b> {{ position.Position }}  </span> <br>
+            
+          
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    {% empty %}
+    <h4>Sorry, no items in this page.</h4>
+    <p>Coming soon...</p>
+  {% endfor %}
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -73,9 +116,9 @@
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- /.row -->
+        </div>-->
+      </div> 
+
 <br>
 
 

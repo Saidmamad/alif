@@ -89,7 +89,7 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
-        #'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" ,
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" ,
     }
 }
 
@@ -131,3 +131,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #'/var/www/static/',
+    '/workersPhoto/',
+]
