@@ -15,7 +15,7 @@
 
   <div class="col-lg-4 col-sm-6 portfolio-item">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" width="700" height="400" src="{{ worker.WorkerPhoto.url }}" alt=""></a>
+        <a href="#"><img class="card-img-top" width="700px" height="300px"  src="{{ worker.WorkerPhoto.url }}" alt=""></a>
         <div class="card-body">
           <h6 class="card-title">
             <a href="#">{{ worker.Name }} {{ worker.Surname }}</a>
@@ -25,10 +25,13 @@
             
             <span><b>Name:</b> {{ worker.Name }}  </span> <br>
             <span><b>Joined:</b> {{ worker.JoinDate }}  </span> <br>
-            <span><b>Position:</b> {{ worker.Position }}  </span> <br>
+            <span><b>Department:</b> {{ worker.Department }}  </span> <br>
             
           
           </p>
+          <br>
+          <a class="btn btn-primary" href="/worker_details/{{ worker.id  }}/">View tour</a>
+
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from django.urls import reverse
 
 
 SEX = (
@@ -20,6 +20,7 @@ DEPARTMENTS = (
 
 class Workers(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Slug = models.SlugField(max_length=200)
     Name = models.CharField(max_length=100, help_text='Name of the worker ')
     Surname = models.CharField(max_length=100, help_text='Surname of the worker ')
     DOB = models.DateField(auto_now=False)
@@ -31,13 +32,16 @@ class Workers(models.Model):
 
     def __str__(self):
         return self.Name + ', ' +self.Surname
-    
 
-
-
+ 
     class Meta:
         verbose_name = 'Worker'
         verbose_name_plural = 'Workers'
+        ordering = (('-Name'),)
+
+
+    def get_absolute_url(self):
+        return self.Slug
 
 class Address(models.Model):
     FullAddress = models.CharField(max_length=200, help_text = 'Please enter the full address of the worker...')
@@ -68,10 +72,7 @@ class Position(models.Model):
      
     def __str__(self):
        return self.Position
-    
-    def get_Worker(self):
-       Worker = Workers.objects.all()
-       return Worker
+
 
     
 

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block content %} 
+<br>
+<br>
+      <!-- Page Heading -->
+      <h1 class="my-4"><u>Worker: {{ worker.Name }} {{ worker.Surname }} </u>
+        <small>{{ worker.Position }} </small>
+      </h1>
+ 
+<div class="row">
+
+  <div class="col-sm-12 portfolio-item">
+    <div class="card h-100">
+      <a href="#"><img class="card-img-top"  width="50%"    src="{{ worker.WorkerPhoto.url }}" alt=""></a>
+      <div class="card-body">
+        <h6 class="card-title">
+          
+        </h6>
+        <p class="card-text">
+          
+          <span><b>Full Name:</b> {{ worker.Name }}  {{ worker.Surname }} </span> <br>
+          <span><b>Department:</b> {{ worker.Department }}   </span> <br>
+          <span><b>Joined:</b> {{ worker.JoinDate }}  </span> <br>
+          <span><b>Current position:</b> {{ position.Position }}  </span> <br>
+          <span><b>Education:</b> 
+            <ol>
+              {% for edu in education %}
+                <li> 
+                  {{ edu.TypeOfQualification }} | {{ edu.StartDate | date:"Y" }} - {{ edu.FinishDate | date:"Y" }} 
+                </li> 
+              {% endfor %}
+            </ol>        
+        
+          </span> 
+          <span><b>Address:</b> {{ address.FullAddress }}  </span> <br>
+          <span><b>Phone:</b> {{ address.Phone }}  </span> <br>
+          <span><b>Email:</b> {{ address.Email }}  </span> <br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div> 
+<br>
+
+
+{% endblock content %} 

@@ -89,7 +89,7 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
-        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" ,
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
     }
 }
 
@@ -132,8 +132,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'alifworkers/media')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    #'/var/www/static/',
-    '/workersPhoto/',
+    os.path.join(BASE_DIR, "workersPhoto"),
+
 ]
